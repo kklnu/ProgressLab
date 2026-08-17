@@ -30,21 +30,30 @@ import jakarta.validation.constraints.Size;
  */
 public class RegisterUserRequest {
 
-    @NotBlank
+    @NotBlank(message = "First name is required.")
     private String firstName;
 
-    @NotBlank
+    @NotBlank(message = "Last name is required.")
     private String lastName;
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "Email is required.")
+    @Email(message = "Please enter a valid email address.")
+    @Pattern(
+    regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+    message = "Please enter a valid email address."
+    )
     private String email;
 
-    @NotBlank
-    @Size(min = 10)
-    @Pattern(
-        regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).+$"
+    @NotBlank(message = "Password is required.")
+    @Size(
+        min = 10,
+        message = "Password must be at least 10 characters."
     )
+    @Pattern(
+        regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).+$",
+        message = "Password must contain an uppercase letter, number, and special character.")
+
+    
     private String password;
 
 

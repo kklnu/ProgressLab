@@ -365,17 +365,43 @@ body {
     font-size: 20px;
 }
 
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display:none;
+}
+
 .password-eye {
     position: absolute;
-
     top: 50%;
     right: 16px;
-
     transform: translateY(-50%);
 
-    color: #aeb7ba;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+    border: none;
+
+    color: #aeb7ba;
     cursor: pointer;
+
+    z-index: 10;
+}
+
+.password-eye:hover {
+    color: #7ce143;
+}
+
+.password-eye svg {
+    width: 22px;
+    height: 22px;
 }
 
 .password-help {
@@ -385,6 +411,14 @@ body {
 
     font-size: 13px;
     line-height: 1.5;
+}
+
+.form-message {
+    min-height: 20px;
+    margin: 8px 0;
+    font-size: 14px;
+    text-align: center;
+    color: #ff6b6b;
 }
 
 
@@ -563,5 +597,23 @@ body {
     .register-heading h2 {
         font-size: 29px;
     }
+
+    .feature-icon i {
+    width: 28px;
+    height: 28px;
+    stroke-width: 2;
+}
+
+.input-icon i {
+    width: 20px;
+    height: 20px;
+}
+
+.password-eye i {
+    width: 22px;
+    height: 22px;
+}
+
+
 
 }

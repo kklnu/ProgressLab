@@ -46,7 +46,9 @@
                 <div class="features">
 
                     <div class="feature">
-                        <div class="feature-icon">◎</div>
+                        <div class="feature-icon">
+                            <i data-lucide="goal"></i>
+                        </div>
 
                         <h3>Set Goals</h3>
 
@@ -57,7 +59,9 @@
                     </div>
 
                     <div class="feature">
-                        <div class="feature-icon">↗</div>
+                        <div class="feature-icon">
+                            <i data-lucide="chart-no-axes-combined"> </i>
+                        </div>
 
                         <h3>Track Progress</h3>
 
@@ -114,7 +118,43 @@
                 <form id="registerForm">
 
                     <div class="form-group">
+    <label for="firstName">First Name</label>
 
+    <div class="input-wrapper">
+        <span class="input-icon">
+            <i data-lucide="user"></i>
+        </span>
+
+        <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder="Enter your first name"
+            required
+        >
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="lastName">Last Name</label>
+
+    <div class="input-wrapper">
+        <span class="input-icon">
+            <i data-lucide="user"></i>
+        </span>
+
+        <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            placeholder="Enter your last name"
+            required
+        >
+    </div>
+</div>
+
+                    
+                    <div class="form-group">
                         <label for="email">
                             Email
                         </label>
@@ -122,7 +162,7 @@
                         <div class="input-wrapper">
 
                             <span class="input-icon">
-                                ✉
+                                <i data-lucide="mail"></i>
                             </span>
 
                             <input
@@ -147,7 +187,7 @@
                         <div class="input-wrapper">
 
                             <span class="input-icon">
-                                ♙
+                                <i data-lucide="lock-keyhole"></i>
                             </span>
 
                             <input
@@ -158,9 +198,14 @@
                                 required
                             >
 
-                            <span class="password-eye">
-                                ◉
-                            </span>
+                            <button
+                                type="button"
+                                class="password-eye"
+                                id="togglePassword"
+                                aria-label="Show password"
+                            >
+                                <i data-lucide="eye"></i>
+                            </button>
 
                         </div>
 
@@ -180,8 +225,8 @@
 
                         <div class="input-wrapper">
 
-                            <span class="input-icon">
-                                ♙
+                           <span class="input-icon">
+                            <i data-lucide="lock-keyhole"></i>
                             </span>
 
                             <input
@@ -192,13 +237,19 @@
                                 required
                             >
 
-                            <span class="password-eye">
-                                ◉
-                            </span>
+                            <button
+                                type="button"
+                                class="password-eye"
+                                id="toggleConfirmPassword"
+                                aria-label="Show confirm password"
+                            >
+                                <i data-lucide="eye"></i>
+                            </button>
 
                         </div>
 
                     </div>
+                    <p id="formMessage" class="form-message"></p>
 
 
                     <button
@@ -245,9 +296,12 @@
         </section>
 
     </main>
-
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="js/register.js"></script>
-
+    
+<script>
+    lucide.createIcons();
+</script>
 </body>
 
 </html>
