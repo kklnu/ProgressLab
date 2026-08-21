@@ -57,4 +57,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * false -> email is available
      */
     boolean existsByEmailIgnoreCase(String email);
+
+    Optional<User> findByResetToken(String resetToken);
 }

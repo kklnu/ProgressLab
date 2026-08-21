@@ -1,0 +1,1808 @@
+/* =========================================================
+   PROGRESSLAB DASHBOARD
+   TARGET: LARGE, READABLE, BALANCED DESKTOP DASHBOARD
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #f7f4ff;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at 80% 0%,
+            rgba(127, 47, 255, 0.08),
+            transparent 32%),
+        #050610;
+}
+
+
+/* =========================================================
+   PAGE LAYOUT
+   ========================================================= */
+
+.dashboard-layout {
+    width: 100%;
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns:
+        230px minmax(0, 1fr);
+
+    gap: 18px;
+
+    padding: 8px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    min-height: calc(100vh - 16px);
+
+    padding: 22px 13px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid rgba(174, 119, 255, 0.26);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(180deg,
+            rgba(17, 14, 36, 0.98),
+            rgba(8, 8, 21, 0.99));
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.sidebar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.sidebar-logo img {
+    width: 175px;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.nav-item {
+    min-height: 53px;
+
+    padding: 0 15px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    border: 1px solid transparent;
+
+    border-radius: 10px;
+
+    color: #ded8e9;
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    transition:
+        0.2s ease background,
+        0.2s ease border-color,
+        0.2s ease color;
+}
+
+.nav-item svg {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    stroke-width: 1.8;
+
+    color: #ddd6e7;
+}
+
+.nav-item:hover {
+    background: rgba(144, 54, 241, 0.12);
+
+    border-color: rgba(178, 91, 255, 0.17);
+
+    color: #ffffff;
+}
+
+.nav-item.active {
+    border-color: rgba(196, 96, 255, 0.55);
+
+    background:
+        linear-gradient(90deg,
+            rgba(137, 38, 227, 0.96),
+            rgba(94, 22, 169, 0.82));
+
+    box-shadow:
+        0 0 20px rgba(145, 46, 255, 0.12);
+
+    color: #ffffff;
+}
+
+.nav-item.active svg {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   DEVICE CARD
+   ========================================================= */
+
+.device-card {
+    margin-top: auto;
+
+    padding: 15px 12px;
+
+    border: 1px solid rgba(177, 77, 255, 0.32);
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(31, 22, 55, 0.72),
+            rgba(12, 11, 29, 0.76));
+}
+
+.device-info {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+}
+
+.device-card-icon {
+    width: 48px;
+    height: 64px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.device-card-icon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.device-card-text {
+    flex: 1;
+}
+
+.device-card h3 {
+    margin-bottom: 5px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #d865ff;
+}
+
+.device-card p {
+    font-size: 10px;
+    line-height: 1.55;
+
+    color: #c0b9ca;
+}
+
+.device-card button {
+    width: 100%;
+
+    min-height: 36px;
+
+    border: 1px solid #b34cff;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #db70ff;
+
+    font-size: 11px;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD PANEL
+   ========================================================= */
+
+.dashboard-main {
+    min-width: 0;
+
+    padding: 24px 24px 14px;
+
+    border: 1px solid rgba(180, 138, 255, 0.18);
+
+    border-radius: 16px;
+
+    background:
+        radial-gradient(circle at top right,
+            rgba(104, 37, 217, 0.05),
+            transparent 28%),
+        linear-gradient(145deg,
+            rgba(13, 14, 31, 0.98),
+            rgba(7, 8, 20, 0.99));
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.dashboard-header {
+    min-height: 72px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 30px;
+
+    margin-bottom: 22px;
+}
+
+.header-left h1 {
+    margin-bottom: 5px;
+
+    font-size: 28px;
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+.header-left p {
+    font-size: 15px;
+    line-height: 1.4;
+
+    color: #bcb5c8;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+}
+
+.header-date {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 13px;
+
+    color: #ddd6e7;
+}
+
+.header-date svg {
+    width: 20px;
+    height: 20px;
+
+    color: #cf61ff;
+}
+
+.header-icon-button,
+.profile-dropdown-button {
+    border: none;
+
+    background: transparent;
+
+    color: #ddd7eb;
+
+    cursor: pointer;
+}
+
+.header-icon-button {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 8px;
+}
+
+.header-icon-button:hover {
+    background: rgba(151, 58, 255, 0.13);
+}
+
+.header-icon-button svg {
+    width: 21px;
+    height: 21px;
+}
+
+.header-profile {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+.profile-avatar {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid #9c40ff;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(145deg,
+            #7624ce,
+            #35105d);
+
+    box-shadow:
+        0 0 18px rgba(145, 51, 255, 0.34);
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.profile-dropdown-button {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-dropdown-button svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* =========================================================
+   CONTENT LAYOUT
+   ========================================================= */
+
+.dashboard-content {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) 280px;
+
+    gap: 18px;
+
+    align-items: start;
+}
+
+.dashboard-center {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+.dashboard-right {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   COMMON CARD STYLE
+   ========================================================= */
+
+.dashboard-card,
+.summary-card {
+    border: 1px solid rgba(177, 135, 255, 0.22);
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(20, 19, 41, 0.92),
+            rgba(11, 12, 27, 0.97));
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.015);
+}
+
+
+/* =========================================================
+   SUMMARY GRID
+   ========================================================= */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+.summary-card {
+    min-height: 310px;
+
+    padding: 17px 16px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-card-header {
+    min-height: 52px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-bottom: 9px;
+}
+
+.summary-card-header>div:last-child {
+    min-width: 0;
+}
+
+.summary-card-header h2 {
+    font-size: 14px;
+    line-height: 1.3;
+
+    font-weight: 500;
+
+    color: #ffffff;
+}
+
+.summary-card-header p {
+    margin-top: 6px;
+
+    font-size: 12px;
+    line-height: 1.3;
+
+    color: #cac3d3;
+}
+
+.summary-icon {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(146, 43, 242, 0.28),
+            rgba(100, 26, 186, 0.15));
+
+    color: #c05aff;
+}
+
+.summary-icon svg {
+    width: 20px;
+    height: 20px;
+
+    stroke-width: 1.8;
+}
+
+
+/* =========================================================
+   PROGRESS CIRCLES
+   ========================================================= */
+
+.goal-circle {
+    width: 135px;
+    height: 135px;
+
+    margin: 17px auto 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(#b84cff 0deg,
+            #7d33ff 245deg,
+            rgba(112, 92, 145, 0.26) 245deg,
+            rgba(112, 92, 145, 0.26) 360deg);
+}
+
+.goal-circle-inner {
+    width: 107px;
+    height: 107px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #101123;
+}
+
+.goal-percent {
+    font-size: 32px;
+    line-height: 1;
+
+    font-weight: 600;
+}
+
+.goal-label {
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    color: #c4bdce;
+}
+
+.goal-remaining {
+    margin-top: auto;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    color: #c65aff;
+}
+
+
+/* =========================================================
+   CURRENT WEIGHT
+   ========================================================= */
+
+.weight-value {
+    margin-top: 36px;
+
+    text-align: center;
+
+    font-size: 36px;
+    line-height: 1;
+
+    font-weight: 600;
+}
+
+.weight-value span {
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #d1cadb;
+}
+
+.weight-change {
+    margin-top: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.weight-change svg {
+    width: 17px;
+    height: 17px;
+
+    color: #40da7a;
+}
+
+.weight-change span {
+    font-size: 13px;
+
+    color: #40da7a;
+}
+
+.weight-change small {
+    font-size: 11px;
+
+    color: #aaa3b7;
+}
+
+.weight-mini-chart {
+    height: 44px;
+
+    margin-top: 23px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    gap: 7px;
+}
+
+.weight-mini-chart span {
+    width: 5px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(#c356ff,
+            #6c2dd0);
+}
+
+.card-footer-text {
+    margin-top: auto;
+
+    padding-top: 12px;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    color: #9f98ad;
+}
+
+
+/* =========================================================
+   BMI CARD
+   ========================================================= */
+
+.bmi-value {
+    margin-top: 39px;
+
+    text-align: center;
+
+    font-size: 42px;
+    line-height: 1;
+
+    font-weight: 600;
+}
+
+.status-pill {
+    width: max-content;
+
+    margin: 19px auto 28px;
+
+    padding: 7px 20px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(90deg,
+            #7121bd,
+            #4b1786);
+
+    font-size: 12px;
+}
+
+.bmi-range {
+    margin-top: auto;
+
+    text-align: center;
+
+    font-size: 11px;
+    line-height: 1.55;
+
+    color: #bbb4c4;
+}
+
+.bmi-range p {
+    margin-bottom: 3px;
+}
+
+
+/* =========================================================
+   WORKOUT CARD
+   ========================================================= */
+
+.workout-circle {
+    background:
+        conic-gradient(#b84cff 0deg,
+            #7d33ff 270deg,
+            rgba(112, 92, 145, 0.26) 270deg,
+            rgba(112, 92, 145, 0.26) 360deg);
+}
+
+.workout-count {
+    margin-top: auto;
+
+    text-align: center;
+
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+}
+
+.section-title h2,
+.quick-actions-card h2 {
+    font-size: 16px;
+    line-height: 1.3;
+
+    font-weight: 500;
+
+    color: #ffffff;
+}
+
+.section-title svg {
+    width: 21px;
+    height: 21px;
+
+    color: #ba4eff;
+}
+
+.section-heading a {
+    font-size: 11px;
+
+    color: #c65cff;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   WEIGHT + GOAL PROGRESS GRID
+   ========================================================= */
+
+.progress-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.55fr) minmax(320px, 0.95fr);
+
+    gap: 14px;
+}
+
+.weight-progress-card,
+.goal-progress-card {
+    min-height: 335px;
+
+    padding: 17px;
+}
+
+.time-filter {
+    min-height: 33px;
+
+    padding: 6px 10px;
+
+    border: 1px solid rgba(175, 135, 255, 0.28);
+
+    border-radius: 7px;
+
+    outline: none;
+
+    background: #101124;
+
+    color: #ddd7e7;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   WEIGHT CHART
+   ========================================================= */
+
+.large-weight-chart {
+    height: 255px;
+
+    display: grid;
+
+    grid-template-columns:
+        34px minmax(0, 1fr);
+
+    gap: 8px;
+}
+
+.chart-y-axis {
+    padding: 4px 0 26px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    font-size: 10px;
+
+    color: #aaa3b5;
+}
+
+.chart-area {
+    position: relative;
+
+    min-width: 0;
+
+    height: 100%;
+}
+
+.chart-grid-lines {
+    position: absolute;
+
+    inset: 4px 0 26px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.chart-grid-lines span {
+    border-top:
+        1px solid rgba(183, 171, 210, 0.13);
+}
+
+.weight-line {
+    position: absolute;
+
+    top: 4px;
+    left: 0;
+
+    width: 100%;
+    height: calc(100% - 28px);
+
+    overflow: visible;
+}
+
+.weight-area-fill {
+    fill: url(#weightFill);
+}
+
+.weight-chart-line {
+    fill: none;
+
+    stroke: #a747ff;
+
+    stroke-width: 2.8;
+
+    vector-effect: non-scaling-stroke;
+}
+
+.chart-points circle {
+    fill: #b751ff;
+
+    stroke: #dc92ff;
+
+    stroke-width: 1.3;
+
+    vector-effect: non-scaling-stroke;
+}
+
+.current-weight-label {
+    position: absolute;
+
+    right: 2%;
+    top: 57%;
+
+    padding: 6px 8px;
+
+    border-radius: 6px;
+
+    background: #7025ac;
+
+    font-size: 10px;
+}
+
+.chart-x-axis {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 9px;
+
+    color: #aaa3b5;
+}
+
+
+/* =========================================================
+   GOAL PROGRESS
+   ========================================================= */
+
+.goal-progress-item {
+    padding: 16px 0;
+
+    border-bottom:
+        1px solid rgba(173, 135, 255, 0.10);
+}
+
+.goal-progress-item:last-child {
+    border-bottom: none;
+}
+
+.goal-progress-heading {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.goal-progress-item p {
+    margin-top: 8px;
+
+    font-size: 10px;
+
+    color: #aaa3b5;
+}
+
+
+/* =========================================================
+   PROGRESS BARS
+   ========================================================= */
+
+.progress-track {
+    width: 100%;
+    height: 7px;
+
+    overflow: hidden;
+
+    border-radius: 50px;
+
+    background:
+        rgba(119, 105, 150, 0.23);
+}
+
+.progress-fill {
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(90deg,
+            #9140ff,
+            #c24fff);
+}
+
+
+/* =========================================================
+   THIS WEEK
+   ========================================================= */
+
+.week-card {
+    padding: 15px;
+}
+
+.week-calendar {
+    width: 20px;
+    height: 20px;
+
+    color: #bd50ff;
+}
+
+.week-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 11px;
+}
+
+.week-stat {
+    min-height: 112px;
+
+    padding: 13px;
+
+    border:
+        1px solid rgba(174, 135, 255, 0.17);
+
+    border-radius: 9px;
+
+    background:
+        rgba(12, 13, 30, 0.50);
+}
+
+.week-stat-header {
+    margin-bottom: 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 10px;
+
+    color: #b1aabd;
+}
+
+.week-stat-header svg {
+    width: 18px;
+    height: 18px;
+
+    color: #b64cff;
+}
+
+.week-stat-header.water svg {
+    color: #55baff;
+}
+
+.week-stat strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 21px;
+    line-height: 1;
+
+    font-weight: 500;
+}
+
+.week-stat p {
+    margin-bottom: 10px;
+
+    font-size: 9px;
+
+    color: #9f98aa;
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+   ========================================================= */
+
+.quick-actions-card {
+    padding: 15px;
+}
+
+.quick-actions-card h2 {
+    margin-bottom: 12px;
+}
+
+.quick-actions-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+.quick-actions-grid button {
+    min-height: 48px;
+
+    padding: 9px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 7px;
+
+    border:
+        1px solid rgba(177, 135, 255, 0.27);
+
+    border-radius: 8px;
+
+    background:
+        rgba(24, 22, 47, 0.62);
+
+    color: #eee9f6;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease background,
+        0.2s ease border-color,
+        0.2s ease transform;
+}
+
+.quick-actions-grid button:hover {
+    border-color:
+        rgba(193, 94, 255, 0.58);
+
+    background:
+        rgba(126, 45, 210, 0.20);
+
+    transform: translateY(-1px);
+}
+
+.quick-actions-grid svg {
+    width: 18px;
+    height: 18px;
+
+    color: #bc50ff;
+}
+
+
+/* =========================================================
+   TODAY'S FOCUS
+   ========================================================= */
+
+.focus-card {
+    padding: 16px;
+}
+
+.focus-title {
+    margin-bottom: 10px;
+}
+
+.focus-item {
+    min-height: 79px;
+
+    padding: 14px 2px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    border-bottom:
+        1px solid rgba(174, 135, 255, 0.11);
+}
+
+.focus-item:last-child {
+    border-bottom: none;
+}
+
+.focus-icon {
+    flex-shrink: 0;
+}
+
+.focus-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.fire-icon {
+    color: #ff693c;
+}
+
+.water-focus-icon {
+    color: #56bbff;
+}
+
+.target-focus-icon {
+    color: #ff4444;
+}
+
+.measurement-focus-icon {
+    color: #ffc847;
+}
+
+.focus-content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.focus-content p {
+    font-size: 11px;
+    line-height: 1.6;
+
+    color: #e4deec;
+}
+
+.focus-progress {
+    margin-top: 10px;
+}
+
+.focus-success {
+    width: 18px;
+    height: 18px;
+
+    color: #32dc7b;
+}
+
+.focus-arrow {
+    width: 18px;
+    height: 18px;
+
+    align-self: center;
+
+    color: #d5cedf;
+}
+
+
+/* =========================================================
+   AI COACH
+   ========================================================= */
+
+.coach-card {
+    min-height: 370px;
+
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.coach-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 14px;
+}
+
+.coach-title {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+}
+
+.coach-title h2 {
+    font-size: 14px;
+    font-weight: 500;
+
+    color: #c65cff;
+}
+
+.coach-icon {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(142, 49, 255, 0.22);
+
+    color: #c65cff;
+}
+
+.coach-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.coach-sparkle {
+    width: 17px;
+    height: 17px;
+
+    color: #d765ff;
+}
+
+.coach-message {
+    padding: 13px;
+
+    border:
+        1px solid rgba(177, 135, 255, 0.18);
+
+    border-radius: 9px;
+
+    background:
+        rgba(27, 24, 51, 0.66);
+}
+
+.coach-message p {
+    font-size: 11px;
+    line-height: 1.65;
+
+    color: #e0dae8;
+}
+
+.ask-coach-button {
+    width: 100%;
+
+    min-height: 40px;
+
+    margin-top: 11px;
+
+    padding: 9px;
+
+    border:
+        1px solid rgba(186, 80, 255, 0.68);
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(90deg,
+            #7823d9,
+            #a02fee);
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.ask-coach-button:hover {
+    filter: brightness(1.08);
+}
+
+.coach-robot {
+    flex: 1;
+
+    min-height: 180px;
+
+    margin-top: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #aa45ff;
+}
+
+.coach-robot svg {
+    width: 115px;
+    height: 115px;
+
+    stroke-width: 1.15;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.dashboard-footer {
+    margin-top: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 9px;
+
+    line-height: 1.4;
+
+    color: #aaa3b2;
+}
+
+.dashboard-footer svg {
+    width: 13px;
+    height: 13px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1800px) {
+
+    .dashboard-layout {
+        grid-template-columns:
+            250px minmax(0, 1fr);
+
+        gap: 22px;
+
+        padding: 10px;
+    }
+
+    .sidebar {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .sidebar-logo img {
+        width: 190px;
+    }
+
+    .dashboard-main {
+        padding: 28px;
+    }
+
+    .dashboard-content {
+        grid-template-columns:
+            minmax(0, 1fr) 310px;
+
+        gap: 20px;
+    }
+
+    .summary-card {
+        min-height: 325px;
+    }
+
+    .progress-grid {
+        grid-template-columns:
+            minmax(0, 1.5fr) minmax(340px, 0.95fr);
+    }
+}
+
+
+/* =========================================================
+   LAPTOP / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 1500px) {
+
+    .dashboard-layout {
+        grid-template-columns:
+            205px minmax(0, 1fr);
+
+        gap: 13px;
+    }
+
+    .dashboard-main {
+        padding: 19px;
+    }
+
+    .dashboard-content {
+        grid-template-columns:
+            minmax(0, 1fr) 245px;
+
+        gap: 13px;
+    }
+
+    .summary-grid {
+        gap: 10px;
+    }
+
+    .summary-card {
+        min-height: 275px;
+
+        padding: 14px;
+    }
+
+    .summary-card-header h2 {
+        font-size: 12px;
+    }
+
+    .summary-card-header p {
+        font-size: 10px;
+    }
+
+    .goal-circle {
+        width: 112px;
+        height: 112px;
+
+        margin-top: 10px;
+    }
+
+    .goal-circle-inner {
+        width: 89px;
+        height: 89px;
+    }
+
+    .goal-percent {
+        font-size: 27px;
+    }
+
+    .weight-value {
+        font-size: 32px;
+    }
+
+    .bmi-value {
+        font-size: 37px;
+    }
+
+    .weight-progress-card,
+    .goal-progress-card {
+        min-height: 300px;
+    }
+
+    .large-weight-chart {
+        height: 220px;
+    }
+
+    .coach-card {
+        min-height: 330px;
+    }
+}
+
+
+/* =========================================================
+   SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 1250px) {
+
+    .dashboard-layout {
+        grid-template-columns:
+            185px minmax(0, 1fr);
+    }
+
+    .sidebar-logo img {
+        width: 145px;
+    }
+
+    .nav-item {
+        min-height: 48px;
+
+        font-size: 12px;
+    }
+
+    .dashboard-content {
+        grid-template-columns:
+            minmax(0, 1fr) 220px;
+    }
+
+    .summary-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .summary-card {
+        min-height: 280px;
+    }
+
+    .progress-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   TABLET LANDSCAPE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .dashboard-layout {
+        grid-template-columns:
+            170px minmax(0, 1fr);
+
+        gap: 9px;
+    }
+
+    .dashboard-main {
+        padding: 16px;
+    }
+
+    .dashboard-content {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-right {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 14px;
+    }
+
+    .coach-card {
+        min-height: auto;
+    }
+
+    .coach-robot {
+        min-height: 130px;
+    }
+
+    .week-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .dashboard-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .header-right {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+    .summary-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .week-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .dashboard-layout {
+        display: block;
+
+        padding: 7px;
+    }
+
+    .sidebar {
+        min-height: auto;
+
+        margin-bottom: 10px;
+    }
+
+    .sidebar-logo {
+        margin-bottom: 20px;
+    }
+
+    .sidebar-nav {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .device-card {
+        margin-top: 20px;
+    }
+
+    .dashboard-main {
+        padding: 15px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-card {
+        min-height: 280px;
+    }
+
+    .progress-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-right {
+        display: grid;
+
+        grid-template-columns: 1fr;
+    }
+
+    .header-left h1 {
+        font-size: 24px;
+    }
+
+    .header-left p {
+        font-size: 13px;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .dashboard-main {
+        padding: 12px;
+    }
+
+    .sidebar-nav {
+        grid-template-columns: 1fr;
+    }
+
+    .header-right {
+        align-items: flex-start;
+    }
+
+    .summary-card {
+        min-height: 270px;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .large-weight-chart {
+        height: 195px;
+    }
+
+    .header-left h1 {
+        font-size: 21px;
+    }
+}

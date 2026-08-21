@@ -1,11 +1,16 @@
 package com.progresslab.progresslab.model;
 
+
+import java.time.LocalDateTime;
+
+import org.springframework.cglib.core.Local;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import java.time.LocalDateTime;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
@@ -93,6 +98,29 @@ public class User {
      */
     @Column(nullable = false)
     private LocalDateTime createdAt;
+    
+    private String resetToken;
+
+    public void setResetToken(String resetToken)
+    {
+        this.resetToken = resetToken;
+    }
+    public String getResetToken()
+    {
+        return resetToken;
+    }
+
+    private LocalDateTime resetTokenExpiry;
+
+    public LocalDateTime getResetTokenExpiry()
+    {
+        return resetTokenExpiry;
+    }
+
+    public void setResetTokenExpiry(LocalDateTime resetTokenExpiry)
+    {
+        this.resetTokenExpiry = resetTokenExpiry;
+    }
 
 
     // No-argument constructor

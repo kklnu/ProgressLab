@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | ProgressLab</title>
+
+    <!-- Login page stylesheet -->
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- Entire login page -->
+    <main class="login-page">
+
+
+        <!-- =====================================================
+             LEFT SIDE
+             Background image + branding + feature content
+        ====================================================== -->
+        <section class="hero-section">
+
+            <!-- Dark overlay over the image -->
+            <div class="hero-overlay"></div>
+
+
+            <!-- Everything displayed over the background image -->
+            <div class="hero-content">
+
+
+                <!-- ProgressLab logo -->
+                <div class="hero-logo">
+
+                    <img
+                        src="images/login-icon.png"
+                        alt="ProgressLab Logo"
+                    >
+
+                </div>
+
+
+                <!-- Main motivational content -->
+                <div class="hero-message">
+
+                    <h1>
+                        STRONGER<br>
+                        EVERY DAY.<br>
+
+                        <span>
+                            BETTER<br>
+                            EVERY YOU.
+                        </span>
+                    </h1>
+
+                    <div class="hero-line"></div>
+
+                    <p>
+                        Track your goals, monitor progress,
+                        and become the best version of yourself.
+                    </p>
+
+                </div>
+
+
+                <!-- Feature list -->
+                <div class="hero-features">
+
+
+                    <!-- Set Goals -->
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            <i data-lucide="goal"></i>
+                        </div>
+
+                        <div class="feature-text">
+
+                            <h3>Set Goals</h3>
+
+                            <p>
+                                Define your path to success
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Track Progress -->
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            <i data-lucide="chart-no-axes-combined"></i>
+                        </div>
+
+                        <div class="feature-text">
+
+                            <h3>Track Progress</h3>
+
+                            <p>
+                                Monitor your performance
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Live Healthy -->
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            <i data-lucide="heart-pulse"></i>
+                        </div>
+
+                        <div class="feature-text">
+
+                            <h3>Live Healthy</h3>
+
+                            <p>
+                                Build habits that last
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Stay Motivated -->
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            <i data-lucide="flame"></i>
+                        </div>
+
+                        <div class="feature-text">
+
+                            <h3>Stay Motivated</h3>
+
+                            <p>
+                                Keep pushing, keep improving
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             RIGHT SIDE
+             Login area
+        ====================================================== -->
+        <section class="login-section">
+
+
+            <!-- Login card -->
+            <div class="login-card">
+
+
+                <!-- Logo -->
+                <div class="login-logo">
+
+                    <img
+                        src="images/login-small-icon.png"
+                        alt="ProgressLab Logo"
+                    >
+
+                </div>
+
+
+                <!-- Heading -->
+                <div class="login-header">
+
+                    <h2>Welcome Back</h2>
+
+                    <p>
+                        Good to see you again!<br>
+                        Let's continue your fitness journey.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LOGIN FORM
+                ================================================== -->
+                <form id="loginForm">
+
+
+                    <!-- Email field -->
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i
+                                data-lucide="mail"
+                                class="input-icon">
+                            </i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Password field -->
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i
+                                data-lucide="lock-keyhole"
+                                class="input-icon">
+                            </i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+
+                            <!-- Show/hide password button -->
+                            <button
+                                type="button"
+                                id="togglePassword"
+                                class="password-toggle"
+                                aria-label="Show password"
+                            >
+
+                                <i
+                                    data-lucide="eye"
+                                    id="passwordEye">
+                                </i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Forgot password -->
+                    <div class="forgot-password">
+
+                        <a href="forgot-password.html">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- Backend/frontend message area -->
+                    <p
+                        id="loginMessage"
+                        class="login-message">
+                    </p>
+
+
+
+                    <!-- Login button -->
+                    <button
+                        type="submit"
+                        id="loginButton"
+                        class="login-button"
+                    >
+
+                        <span>LOG IN</span>
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </button>
+
+                </form>
+
+
+
+                <!-- OR divider -->
+                <div class="divider">
+
+                    <span></span>
+
+                    <p>or</p>
+
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- Registration link -->
+                <div class="create-account">
+
+                    <p>
+                        Don't have an account?
+                    </p>
+
+                    <a href="index.html">
+
+                        Create Account
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 Bottom trust section
+            ================================================== -->
+            <div class="trust-section">
+
+
+                <!-- Secure login -->
+                <div class="trust-item">
+
+                    <i data-lucide="shield-check"></i>
+
+                    <div>
+
+                        <h4>Secure Login</h4>
+
+                        <p>
+                            Your data is protected
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="trust-divider"></div>
+
+
+                <!-- Privacy -->
+                <div class="trust-item">
+
+                    <i data-lucide="lock"></i>
+
+                    <div>
+
+                        <h4>Privacy Focused</h4>
+
+                        <p>
+                            We value your privacy
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="trust-divider"></div>
+
+
+                <!-- ProgressLab community -->
+                <div class="trust-item">
+
+                    <i data-lucide="users"></i>
+
+                    <div>
+
+                        <h4>Join ProgressLab</h4>
+
+                        <p>
+                            Keep achieving your goals
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- Login JavaScript -->
+    <script src="js/login.js"></script>
+
+
+    <!-- Convert Lucide placeholders into actual SVG icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>
