@@ -71,6 +71,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+		<!-- Gemini Java SDK for ProgressLab AI Coach -->
+		<dependency>
+    		<groupId>com.google.genai</groupId>
+    		<artifactId>google-genai</artifactId>
+    		<version>1.64.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
